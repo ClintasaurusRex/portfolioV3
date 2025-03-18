@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Import components
 import CosmicBackground from "./components/CosmicBackground";
