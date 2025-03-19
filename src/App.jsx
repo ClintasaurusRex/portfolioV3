@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Import components
 import CosmicBackground from "./components/CosmicBackground";
-import CosmicEra from "./components/CosmicBackground";
+import CosmicEra from "./components/CosmicEra";
 
 // Import data
 import cosmicData from "./data";
@@ -24,25 +24,55 @@ function App() {
   const currentEraData = eras.find((era) => era.id === currentEra);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden font-sans">
+    <div
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        overflowX: "hidden",
+        fontFamily: "sans-serif",
+      }}
+    >
       {/* Dynamic cosmic background */}
       <CosmicBackground era={currentEra} />
 
       {/* Main navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 py-6">
-        <div className="flex flex-wrap justify-center space-x-2 backdrop-blur-sm bg-black bg-opacity-30 p-2 rounded-full">
+      <nav
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 40,
+          display: "flex",
+          justifyContent: "center",
+          padding: "1rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "0.5rem",
+            backdropFilter: "blur(4px)",
+            backgroundColor: "rgba(0, 0, 0, 0.3)",
+            padding: "0.5rem",
+            borderRadius: "9999px",
+          }}
+        >
           {eras.map((era) => (
             <button
               key={era.id}
               onClick={() => setCurrentEra(era.id)}
-              className={`px-4 py-2 rounded-full transition-all duration-500 ${
-                currentEra === era.id
-                  ? "text-black"
-                  : "bg-transparent text-gray-400 hover:text-white"
-              }`}
               style={{
+                padding: "0.5rem 1rem",
+                borderRadius: "9999px",
+                border: "none",
                 backgroundColor: currentEra === era.id ? era.color : "transparent",
+                color: currentEra === era.id ? "black" : "rgba(156, 163, 175, 1)",
                 boxShadow: currentEra === era.id ? `0 0 15px ${era.color}50` : "none",
+                cursor: "pointer",
+                transition: "all 0.5s ease",
               }}
             >
               {era.title}
@@ -52,24 +82,53 @@ function App() {
       </nav>
 
       {/* Main content area */}
-      <main className="relative z-10 container mx-auto pt-32 px-4 pb-24">
+      <main
+        style={{
+          position: "relative",
+          zIndex: 10,
+          maxWidth: "1200px",
+          margin: "0 auto",
+          paddingTop: "8rem",
+          paddingBottom: "6rem",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+        }}
+      >
         <AnimatePresence mode="wait">
           <CosmicEra key={currentEra} eraData={currentEraData} />
         </AnimatePresence>
       </main>
 
       {/* Contact button */}
-      <motion.div className="fixed bottom-10 right-10 z-30" whileHover={{ scale: 1.1 }}>
+      <motion.div
+        style={{
+          position: "fixed",
+          bottom: "2.5rem",
+          right: "2.5rem",
+          zIndex: 30,
+        }}
+        whileHover={{ scale: 1.1 }}
+      >
         <button
-          className="bg-white text-black font-bold px-5 py-3 rounded-full shadow-lg flex items-center space-x-2"
           style={{
+            backgroundColor: "white",
+            color: "black",
+            fontWeight: "bold",
+            padding: "0.75rem 1.25rem",
+            borderRadius: "9999px",
+            border: "none",
             boxShadow: `0 0 20px ${currentEraData?.color || "#FFFFFF"}`,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
           }}
         >
           <span>Contact Me</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            width="20"
+            height="20"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
