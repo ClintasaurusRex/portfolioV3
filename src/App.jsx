@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Import components
 import CosmicBackground from "./components/CosmicBackground";
-import CosmicEra from "./components/CosmicEra";
+import CosmicEra from "./components/CosmicBackground";
 
 // Import data
-import cosmicData from "./data/cosmicData";
+import cosmicData from "./data";
 
 function App() {
   const [currentEra, setCurrentEra] = useState("big-bang");
