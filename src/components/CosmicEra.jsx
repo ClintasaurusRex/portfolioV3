@@ -15,7 +15,7 @@ const CosmicEra = ({ eraData }) => {
       style={{ width: "100%", maxWidth: "72rem", margin: "0 auto" }}
     >
       {/* Era Header */}
-      <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+      <div style={{ textAlign: "center", marginBottom: "9rem" }}>
         <motion.h1
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

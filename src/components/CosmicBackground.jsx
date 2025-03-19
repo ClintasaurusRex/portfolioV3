@@ -8,7 +8,7 @@ const CosmicBackground = ({ era }) => {
   useEffect(() => {
     const generateStars = () => {
       const newStars = [];
-      const starCount = 200;
+      const starCount = 900;
 
       for (let i = 0; i < starCount; i++) {
         newStars.push({
@@ -17,7 +17,7 @@ const CosmicBackground = ({ era }) => {
           y: Math.random() * 100,
           size: Math.random() * 3 + 1,
           opacity: Math.random() * 0.8 + 0.2,
-          twinkleSpeed: Math.random() * 4 + 2,
+          twinkleSpeed: Math.random() * 5 + 1,
           twinkleDelay: Math.random() * -4,
         });
       }
